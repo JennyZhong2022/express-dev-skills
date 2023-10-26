@@ -17,6 +17,19 @@ const getOne = (id) => {
  return skills.find((skill)=>skill.id===id)
 }
 
+const create= (skill) => {
+  skill.id = Date.now() % 100,
+  skill.level = "good",
+  skills.push(skill)  
+    
+}
+
+const deleteOne = (id) => {
+  id = parseInt(id);
+  const idx= skills.findIndex((skill) => skill.id === id)
+  skills.splice(idx,1)
+}
+
 module.exports = {
-  getAll,getOne
+  getAll,getOne,create,deleteOne
 }
